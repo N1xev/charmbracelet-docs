@@ -1,0 +1,43 @@
+---
+title: installation guide
+description: here how you can install charm bracelet
+icon: ArrowDownToLine
+---
+
+
+### Prerequisites
+
+  * A working installation of [Go](https://go.dev/doc/install) (version 1.22 or higher is recommended).
+
+### Installation
+
+Once you have Go set up, you can install Bubble Tea and its components using the `go get` command. It's best to do this within your project's Go module.
+
+**1. Create a new Go module (if you don't have one):**
+First, create a new directory for your project and initialize a Go module.
+
+```bash
+mkdir my-tui-app
+cd my-tui-app
+go mod init my-tui-app
+```
+
+**2. Install Bubble Tea:**
+Now, you can use `go get` to add the Bubble Tea library to your project.
+
+```bash
+go get github.com/charmbracelet/bubbletea
+```
+
+This command will download the library and its dependencies and add them to your `go.mod` file.
+
+**3. Use the library in your code:**
+In your Go code, you can import the library like this:
+
+```go
+import (
+    tea "github.com/charmbracelet/bubbletea"
+)
+```
+
+From there, you can start building your TUI application using Bubble Tea's functional programming model. For more detailed guides and examples, you can check out the official [Bubble Tea GitHub repository](https://github.com/charmbracelet/bubbletea) and its [tutorial](https://github.com/charmbracelet/bubbletea/tree/master/examples).

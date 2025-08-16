@@ -1,0 +1,49 @@
+---
+title: FAQ
+description: here is some question that maybe came to your head
+icon: CircleQuestionMark
+---
+
+
+### General Questions
+
+**Q: What is Bubble Tea?**
+A: Bubble Tea is a Go framework specifically designed for creating interactive terminal user interfaces (TUIs). It is based on "The Elm Architecture," which greatly simplifies the process of developing complex and engaging user interfaces.
+
+**Q: What are the main advantages of using Bubble Tea?**
+A: Bubble Tea contributes to simplifying TUI development by providing a clean, functional, and well-structured architectural model. This framework handles the intricate details of rendering, event processing, and state management, allowing developers to focus entirely on the application's logic.
+
+**Q: Can Bubble Tea be relied upon in production environments?**
+A: Yes, Bubble Tea is widely used in numerous projects and companies in production environments. It is considered a stable, well-maintained library with strong community support.
+
+**Q: What is "The Elm Architecture" and why is it used?**
+A: "The Elm Architecture" is a functional design pattern based on a simple loop: Model -\> Update -\> View. This pattern promotes a predictable and easily debuggable workflow where the entire application state is managed within a single `Model`, updated by the `Update` function, and rendered by the `View` function.
+
+### Installation and Setup
+
+**Q: How can I install Bubble Tea?**
+A: The library can be installed using the `go get` command within your project's Go module:
+
+```sh
+go get github.com/charmbracelet/bubbletea
+```
+
+**Q: What are the basic requirements?**
+A: The only requirement is a functional installation of the Go programming language (version 1.18 or newer is recommended).
+
+### Development and Usage
+
+**Q: What is the `Model`?**
+A: The `Model` is a `struct` that holds the complete state of your application at any given moment. While it can be any data type, using a `struct` is the most common practice.
+
+**Q: How is user input handled?**
+A: User input, such as key presses or mouse events, is received as a message (`tea.Msg`) inside the `Update` function. You can use a `switch` statement to handle different message types and update the model accordingly.
+
+**Q: How is the view updated?**
+A: The view is not "changed" directly. Instead, the `Model` is modified within the `Update` function. The `View` function is then automatically called with the updated model to re-render the user interface based on the new state.
+
+**Q: Can I use CSS to style the user interface?**
+A: No, Bubble Tea does not support CSS. However, the companion library **[Lip Gloss](https://github.com/charmbracelet/lipgloss)** can be used to apply colors, borders, and other styling to the terminal output.
+
+**Q: How can I exit a Bubble Tea application?**
+A: An application can be terminated by returning a `tea.Quit` command from the `Update` function. By default, Bubble Tea also handles the `Ctrl+C` command to gracefully exit the program.

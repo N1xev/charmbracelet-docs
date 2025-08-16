@@ -1,0 +1,8 @@
+{
+    "title": "Bubble Tea",
+    "description": "The TUI framework",
+    "root": true,
+    "defaultOpen": true,
+    "icon": "BubbleTea",
+    "pages": ["---Overview---","index","installation","---Getting started---", "Guides", "Community"]
+}

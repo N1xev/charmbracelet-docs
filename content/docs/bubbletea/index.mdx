@@ -1,0 +1,85 @@
+---
+title: Introduction
+description: The fun, functional and stateful way to build terminal apps.
+icon: Info
+---
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Callout } from 'fumadocs-ui/components/callout';
+import { HomeIcon } from 'lucide-react';
+import Link from 'next/link'
+import Image from 'next/image'
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcSet="https://stuff.charm.sh/bubbletea/bubble-tea-v2-light.png" width="308" />
+    <source media="(prefers-color-scheme: dark)" srcSet="https://stuff.charm.sh/bubbletea/bubble-tea-v2-dark.png" width="312" />
+    <img src="https://stuff.charm.sh/bubbletea/bubble-tea-v2-light.png" alt="Bubble Tea Logo" width="308" />
+  </picture>
+  <br />
+   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+    <a href="https://github.com/charmbracelet/bubbletea/releases">
+      <img src="https://img.shields.io/github/release/charmbracelet/bubbletea.svg" alt="Latest Release" />
+    </a>
+    <a href="https://pkg.go.dev/github.com/charmbracelet/bubbletea?tab=doc">
+      <img src="https://godoc.org/github.com/charmbracelet/bubbletea?status.svg" alt="GoDoc" />
+    </a>
+    <a href="https://github.com/charmbracelet/bubbletea/actions">
+      <img src="https://github.com/charmbracelet/bubbletea/actions/workflows/build.yml/badge.svg?branch=main" alt="Build Status" />
+    </a>
+  </div>
+</div>
+
+## BubbleTea
+
+is a fun, functional, stateful and elegant Go framework for building terminal user interfaces (TUIs). Inspired by the [Elm architecture](https://guide.elm-lang.org/), it provides a simple yet robust model for creating interactive command-line applications, dashboards, games, and more.
+
+Whether you're building a simple CLI tool or a complex TUI application, Bubble Tea makes the process enjoyable and straightforward by handling the complexities of terminal rendering, events, and state management for you.
+
+<div align="center">
+<Image src="https://stuff.charm.sh/bubbletea/bubbletea-example.gif" width={350} height={350} alt="Bubble Tea Example" />
+</div>
+
+### The Elm-like Architecture
+
+Bubble Tea is built around a simple and predictable architecture composed of three main parts:
+
+* **Model:** This is a struct that holds the entire state of your application. It should contain all the data your application needs to render itself.
+* **Update:** This is a function that receives messages (like key presses or window resizes) and updates your **Model** in response. This is where your application's logic lives.
+* **View:** This is a function that takes your **Model** and returns a string representing what should be drawn on the screen. It's a pure function, meaning it only cares about the current state of your model.
+
+This simple cycle—**Model** -> **Update** -> **View**—is the core of every Bubble Tea application.
+
+### Key Features
+
+* **Simple API:** The framework is easy to learn and use, allowing you to get started quickly.
+* **Cross-Platform:** Bubble Tea works seamlessly on Linux, macOS, and Windows.
+* **Functional & Predictable:** The Elm-like model makes your code easy to reason about, test, and maintain.
+* **Built-in Components:** A vast ecosystem of composable packages is available to help you build your application faster.
+
+<Callout type="info" title="By the way">
+  Be sure to check out [Bubbles](https://github.com/charmbracelet/bubbles), a library of common UI components for Bubble Tea.
+</Callout>
+
+<div align="center" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+    <a href="https://github.com/charmbracelet/bubbles">
+      <img src="https://stuff.charm.sh/bubbles/bubbles-badge.png" width="174" alt="Bubbles Badge" />
+    </a>
+    <a href="https://github.com/charmbracelet/bubbles">
+      <img src="https://stuff.charm.sh/bubbles-examples/textinput.gif" width="400" alt="Text Input Example from Bubbles" />
+    </a>
+</div>
+
+### Getting Started
+
+Ready to create your first TUI?
+<Cards>
+  <Card
+    title="Install Bubble Tea"
+  >
+    Make sure you have Go installed, <Link href="/docs/bubbletea/installation">Installation guide here</Link>
+  </Card>
+  <Card title="Build a simple app">Check out the <Link href="/docs/bubbletea/tutorial">Tutorial</Link> or <Link href="https://github.com/charmbracelet/bubbletea/tree/master/examples">official examples</Link> for a hands-on introduction.</Card>
+</Cards>
+
+Feel free to browse the rest of the wiki to dive deeper into specific topics, learn about advanced features, or find solutions to common problems. Welcome to the community!
