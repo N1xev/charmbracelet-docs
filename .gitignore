@@ -26,3 +26,15 @@ yarn-error.log*
 .env*.local
 .vercel
 next-env.d.ts
+.crush/crush.db
+.crush/crush.db-shm
+.crush/crush.db-wal
+.crush/init
+.crush/logs/crush.log
+Projects/Learning/bubbletea-wiki/.crush/crush.db
+Projects/Learning/bubbletea-wiki/.crush/crush.db-shm
+Projects/Learning/bubbletea-wiki/.crush/crush.db-wal
+Projects/Learning/bubbletea-wiki/.crush/init
+Projects/Learning/bubbletea-wiki/.crush/logs/crush.log
+.env
+bun.lock

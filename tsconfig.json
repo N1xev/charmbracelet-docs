@@ -38,7 +38,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/lib/source.tsx", "next.config.mjs"  ],
   "exclude": [
     "node_modules"
   ]
