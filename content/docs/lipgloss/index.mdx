@@ -1,0 +1,43 @@
+---
+title: Introduction
+description: The fun, functional and stateful way to build terminal apps.
+icon: Info
+---
+
+import Link from 'next/link'
+import Image from 'next/image'
+
+<div align="center">
+<picture>
+<Image src="https://stuff.charm.sh/lipgloss/lip-gloss-dark-2025-06.png" alt="lip gloss logo" width={260} height={260} />
+</picture>
+{/* <br/>
+<Link href="https://github.com/charmbracelet/lipgloss/releases"><Image src="https://img.shields.io/github/release/charmbracelet/lipgloss.svg" width={100} height={100} alt="Latest Release"/></Link>
+<Link href="https://pkg.go.dev/github.com/charmbracelet/lipgloss?tab=doc"><Image src="https://godoc.org/github.com/golang/gddo?status.svg" width={100} height={100} alt="GoDoc"/></Link>
+<Link href="https://github.com/charmbracelet/lipgloss/actions"><Image src="https://github.com/charmbracelet/lipgloss/workflows/build/badge.svg" width={100} height={100} alt="Build Status"/></Link> */}
+</div>
+
+# Lip Gloss
+
+Style definitions for nice terminal layouts. Built with TUIs in mind.
+
+<div align="center">
+<Image src="https://github.com/user-attachments/assets/92560e60-d70e-4ce0-b39e-a60bb933356b" alt="Lip Gloss example" width={300} height={300} />
+</div>
+
+Lip Gloss takes an expressive, declarative approach to terminal rendering.
+Users familiar with CSS will feel at home with Lip Gloss.
+
+```go
+import "github.com/charmbracelet/lipgloss"
+
+var style = lipgloss.NewStyle().
+    Bold(true).
+    Foreground(lipgloss.Color("#FAFAFA")).
+    Background(lipgloss.Color("#7D56F4")).
+    PaddingTop(2).
+    PaddingLeft(4).
+    Width(22)
+
+fmt.Println(style.Render("Hello, kitty"))
+```

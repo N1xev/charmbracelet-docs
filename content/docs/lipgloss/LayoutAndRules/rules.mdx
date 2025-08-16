@@ -1,0 +1,58 @@
+---
+title: Rules
+description: you can easily enforce or unset rules with lipgloss
+---
+
+
+## Unsetting Rules
+
+
+All rules can be unset:
+
+
+```go
+
+var style = lipgloss.NewStyle().
+
+Bold(true). // make it bold
+
+UnsetBold(). // jk don't make it bold
+
+Background(lipgloss.Color("227")). // yellow background
+
+UnsetBackground() // never mind
+
+```
+
+
+
+When a rule is unset, it won't be inherited or copied.
+
+
+
+
+## Enforcing Rules
+
+Sometimes, such as when developing a component, you want to make sure style
+
+definitions respect their intended purpose in the UI. This is where `Inline`
+
+and `MaxWidth`, and `MaxHeight` come in:
+
+
+
+```go
+
+// Force rendering onto a single line, ignoring margins, padding, and borders.
+
+someStyle.Inline(true).Render("yadda yadda")
+
+// Also limit rendering to five cells
+
+someStyle.Inline(true).MaxWidth(5).Render("yadda yadda")
+
+// Limit rendering to a 5x5 cell block
+
+someStyle.MaxWidth(5).MaxHeight(5).Render("yadda yadda")
+
+```

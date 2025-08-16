@@ -1,0 +1,107 @@
+---
+title: Rendering Trees
+---
+
+import Image from 'next/image'
+
+
+## Rendering Trees
+
+Lip Gloss ships with a tree rendering sub-package.
+
+```go
+import "github.com/charmbracelet/lipgloss/tree"
+```
+
+Define a new tree.
+
+```go
+t := tree.Root(".").
+    Child("A", "B", "C")
+```
+
+Print the tree.
+
+```go
+fmt.Println(t)
+
+// .
+// ├── A
+// ├── B
+// └── C
+```
+
+Trees have the ability to nest.
+
+```go
+t := tree.Root(".").
+    Child("macOS").
+    Child(
+        tree.New().
+            Root("Linux").
+            Child("NixOS").
+            Child("Arch Linux (btw)").
+            Child("Void Linux"),
+        ).
+    Child(
+        tree.New().
+            Root("BSD").
+            Child("FreeBSD").
+            Child("OpenBSD"),
+    )
+```
+
+Print the tree.
+
+```go
+fmt.Println(t)
+```
+
+<p align="center">
+<Image width={663} height={663} alt="Tree Example (simple)" src="https://github.com/user-attachments/assets/5ef14eb8-a5d4-4f94-8834-e15d1e714f89"/>
+</p>
+
+Trees can be customized via their enumeration function as well as using
+`lipgloss.Style`s.
+
+```go
+enumeratorStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("63")).MarginRight(1)
+rootStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("35"))
+itemStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("212"))
+
+t := tree.
+    Root("⁜ Makeup").
+    Child(
+        "Glossier",
+        "Fenty Beauty",
+        tree.New().Child(
+            "Gloss Bomb Universal Lip Luminizer",
+            "Hot Cheeks Velour Blushlighter",
+        ),
+        "Nyx",
+        "Mac",
+        "Milk",
+    ).
+    Enumerator(tree.RoundedEnumerator).
+    EnumeratorStyle(enumeratorStyle).
+    RootStyle(rootStyle).
+    ItemStyle(itemStyle)
+```
+
+Print the tree.
+
+<p align="center">
+<Image width={663} height={663} alt="Tree Example (makeup)" src="https://github.com/user-attachments/assets/06d12d87-744a-4c89-bd98-45de9094a97e"/>
+</p>
+
+The predefined enumerators for trees are `DefaultEnumerator` and `RoundedEnumerator`.
+
+If you need, you can also build trees incrementally:
+
+```go
+t := tree.New()
+
+for i := 0; i < repeat; i++ {
+    t.Child("Lip Gloss")
+}
+```

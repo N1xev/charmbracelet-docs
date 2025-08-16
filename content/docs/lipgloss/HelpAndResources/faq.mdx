@@ -1,0 +1,33 @@
+---
+title: FAQ
+---
+
+## FAQ
+
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+<Accordions>
+<Accordion title="Why are things misaligning? Why are borders at the wrong widths?" id="misaligning-borders">
+This is most likely due to your locale and encoding, particularly with regard to Chinese, Japanese, and Korean (for example, `zh_CN.UTF-8` or `ja_JP.UTF-8`). The most direct way to fix this is to set `RUNEWIDTH_EASTASIAN=0` in your environment.
+
+For details see [this issue](https://github.com/charmbracelet/lipgloss/issues/40)
+</Accordion>
+
+<Accordion title="Why isn't Lip Gloss displaying colors?" id="no-colors">
+Lip Gloss automatically degrades colors to the best available option in the given terminal, and if output's not a TTY it will remove color output entirely. This is common when running tests, CI, or when piping output elsewhere.
+
+If necessary, you can force a color profile in your tests with [`SetColorProfile`](https://pkg.go.dev/github.com/charmbracelet/lipgloss#SetColorProfile).
+
+```go
+import (
+    "github.com/charmbracelet/lipgloss"
+    "github.com/muesli/termenv"
+)
+
+lipgloss.SetColorProfile(termenv.TrueColor)
+```
+
+> **Note:** this option limits the flexibility of your application and can cause ANSI escape codes to be output in cases where that might not be desired. Take careful note of your use case and environment before choosing to force a color profile.
+
+</Accordion>
+</Accordions>

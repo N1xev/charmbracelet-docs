@@ -1,0 +1,21 @@
+---
+title: Copying Style
+description: you can easily copy a set of styles on lipgloss
+---
+
+## Copying Styles
+
+Just use assignment:
+
+```go
+style := lipgloss.NewStyle().Foreground(lipgloss.Color("219"))
+
+copiedStyle := style // this is a true copy
+
+wildStyle := style.Blink(true) // this is also true copy, with blink added
+
+```
+
+Since `Style` data structures contains only primitive types, assigning a style
+to another effectively creates a new copy of the style without mutating the
+original.

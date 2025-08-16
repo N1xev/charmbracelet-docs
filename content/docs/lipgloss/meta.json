@@ -1,0 +1,7 @@
+{
+  "title": "Lip Gloss",
+  "description": "The BubbleTea styling lib",
+  "pages": ["---Overview---", "index", "installation", "---Getting Started---", "Styling", "LayoutAndRules", "Rendering", "Advanced", "HelpAndResources"],
+  "root": true,
+  "icon": "LipGloss"
+}

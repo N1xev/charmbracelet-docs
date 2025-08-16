@@ -1,0 +1,31 @@
+---
+title: Inheritance
+---
+
+Styles can inherit rules from other styles. When inheriting, only unset rules
+
+on the receiver are inherited.
+
+  
+
+```go
+
+var styleA = lipgloss.NewStyle().
+
+Foreground(lipgloss.Color("229")).
+
+Background(lipgloss.Color("63"))
+
+  
+
+// Only the background color will be inherited here, because the foreground
+
+// color will have been already set:
+
+var styleB = lipgloss.NewStyle().
+
+Foreground(lipgloss.Color("201")).
+
+Inherit(styleA)
+
+```

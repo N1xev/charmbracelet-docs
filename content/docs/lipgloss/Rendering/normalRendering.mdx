@@ -1,0 +1,44 @@
+---
+title:  Rendering
+description: You can render your content on lipgloss with static or dynamic content
+---
+
+## Normal Rendering
+
+Generally, you just call the `Render(string...)` method on a `lipgloss.Style`:
+
+```go
+style := lipgloss.NewStyle().Bold(true).SetString("Hello,")
+fmt.Println(style.Render("kitty.")) // Hello, kitty.
+fmt.Println(style.Render("puppy.")) // Hello, puppy.
+```
+
+But you could also use the Stringer interface:
+
+```go
+var style = lipgloss.NewStyle().SetString("你好，猫咪。").Bold(true)
+fmt.Println(style) // 你好，猫咪。
+```
+
+### Custom Renderers
+
+Custom renderers allow you to render to a specific outputs. This is
+particularly important when you want to render to different outputs and
+correctly detect the color profile and dark background status for each, such as
+in a server-client situation.
+
+```go
+func myLittleHandler(sess ssh.Session) {
+    // Create a renderer for the client.
+    renderer := lipgloss.NewRenderer(sess)
+
+    // Create a new style on the renderer.
+    style := renderer.NewStyle().Background(lipgloss.AdaptiveColor{Light: "63", Dark: "228"})
+
+    // Render. The color profile and dark background state will be correctly detected.
+    io.WriteString(sess, style.Render("Heyyyyyyy"))
+}
+```
+
+For an example on using a custom renderer over SSH with [Wish][wish] see the
+[SSH example][ssh-example].

@@ -1,0 +1,5 @@
+{
+    "title": "Rendering",
+    "pages": ["normalRendering", "renderingTables", "renderingLists", "renderingTrees"],
+    "defaultOpen": false
+}

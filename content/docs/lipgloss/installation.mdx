@@ -1,0 +1,66 @@
+---
+title: Installation
+description: This page provides a clear and accurate installation guide.
+icon: ArrowDownToLine
+---
+
+## Requirements
+
+* **Go 1.22 or higher** installed on your system.
+  You can check your version with:
+
+  ```sh
+  go version
+  ```
+
+---
+
+## Installation
+
+To install Lip Gloss, run:
+
+```sh
+go get github.com/charmbracelet/lipgloss@latest
+```
+
+This will fetch the latest version of Lip Gloss and add it to your module’s dependencies.
+
+---
+
+## Usage Example
+
+Once installed, you can import Lip Gloss into your Go project:
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/charmbracelet/lipgloss"
+)
+
+func main() {
+    style := lipgloss.NewStyle().Foreground(lipgloss.Color("205")).Bold(true)
+    fmt.Println(style.Render("Hello, Lip Gloss!"))
+}
+```
+
+Run it with:
+
+```sh
+go run main.go
+```
+
+You should see a bold, styled “Hello, Lip Gloss!” message printed in the terminal.
+
+---
+
+## Updating Lip Gloss
+
+To update Lip Gloss to the latest version:
+
+```sh
+go get -u github.com/charmbracelet/lipgloss@latest
+```
+

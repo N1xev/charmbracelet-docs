@@ -1,0 +1,71 @@
+---
+title: Coloring
+description: lipgloss supports alot of types to color your bubbletea app
+---
+
+Lip Gloss supports the following color profiles:
+
+### ANSI 16 colors (4-bit)
+
+```go
+lipgloss.Color("5")  // magenta
+lipgloss.Color("9")  // red
+lipgloss.Color("12") // light blue
+```
+
+### ANSI 256 Colors (8-bit)
+
+```go
+lipgloss.Color("86")  // aqua
+lipgloss.Color("201") // hot pink
+lipgloss.Color("202") // orange
+```
+
+### True Color (16,777,216 colors; 24-bit)
+
+```go
+lipgloss.Color("#0000FF") // good ol' 100% blue
+lipgloss.Color("#04B575") // a green
+lipgloss.Color("#3C3C3C") // a dark gray
+```
+
+...as well as a 1-bit ASCII profile, which is black and white only.
+
+The terminal's color profile will be automatically detected, and colors outside
+the gamut of the current palette will be automatically coerced to their closest
+available value.
+
+### Adaptive Colors
+
+You can also specify color options for light and dark backgrounds:
+
+```go
+lipgloss.AdaptiveColor{Light: "236", Dark: "248"}
+```
+
+The terminal's background color will automatically be detected and the
+appropriate color will be chosen at runtime.
+
+### Complete Colors
+
+CompleteColor specifies exact values for True Color, ANSI256, and ANSI color
+profiles.
+
+```go
+lipgloss.CompleteColor{TrueColor: "#0000FF", ANSI256: "86", ANSI: "5"}
+```
+
+Automatic color degradation will not be performed in this case and it will be
+based on the color specified.
+
+### Complete Adaptive Colors
+
+You can use `CompleteColor` with `AdaptiveColor` to specify the exact values for
+light and dark backgrounds without automatic color degradation.
+
+```go
+lipgloss.CompleteAdaptiveColor{
+    Light: CompleteColor{TrueColor: "#d7ffae", ANSI256: "193", ANSI: "11"},
+    Dark:  CompleteColor{TrueColor: "#d75fee", ANSI256: "163", ANSI: "5"},
+}
+```

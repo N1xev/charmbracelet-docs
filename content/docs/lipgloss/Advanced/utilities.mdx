@@ -1,0 +1,66 @@
+---
+title: Utilities
+---
+
+## What is this?
+
+In addition to pure styling, Lip Gloss also ships with some utilities to help
+assemble your layouts.
+
+### Joining Paragraphs
+
+Horizontally and vertically joining paragraphs is a cinch.
+
+```go
+// Horizontally join three paragraphs along their bottom edges
+lipgloss.JoinHorizontal(lipgloss.Bottom, paragraphA, paragraphB, paragraphC)
+
+// Vertically join two paragraphs along their center axes
+lipgloss.JoinVertical(lipgloss.Center, paragraphA, paragraphB)
+
+// Horizontally join three paragraphs, with the shorter ones aligning 20%
+// from the top of the tallest
+lipgloss.JoinHorizontal(0.2, paragraphA, paragraphB, paragraphC)
+```
+
+### Measuring Width and Height
+
+Sometimes you’ll want to know the width and height of text blocks when building
+your layouts.
+
+```go
+// Render a block of text.
+var style = lipgloss.NewStyle().
+    Width(40).
+    Padding(2)
+var block string = style.Render(someLongString)
+
+// Get the actual, physical dimensions of the text block.
+width := lipgloss.Width(block)
+height := lipgloss.Height(block)
+
+// Here's a shorthand function.
+w, h := lipgloss.Size(block)
+```
+
+### Placing Text in Whitespace
+
+Sometimes you’ll simply want to place a block of text in whitespace.
+
+```go
+// Center a paragraph horizontally in a space 80 cells wide. The height of
+// the block returned will be as tall as the input paragraph.
+block := lipgloss.PlaceHorizontal(80, lipgloss.Center, fancyStyledParagraph)
+
+// Place a paragraph at the bottom of a space 30 cells tall. The width of
+// the text block returned will be as wide as the input paragraph.
+block := lipgloss.PlaceVertical(30, lipgloss.Bottom, fancyStyledParagraph)
+
+// Place a paragraph in the bottom right corner of a 30x80 cell space.
+block := lipgloss.Place(30, 80, lipgloss.Right, lipgloss.Bottom, fancyStyledParagraph)
+```
+
+You can also style the whitespace. For details, see [the docs][docs].
+
+
+

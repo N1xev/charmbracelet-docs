@@ -1,0 +1,52 @@
+---
+title: Borders
+description: with lipgloss you can add a beauty borders for your TUI
+---
+
+## Borders
+
+Adding borders is easy:
+
+```go
+// Add a purple, rectangular border
+var style = lipgloss.NewStyle().
+    BorderStyle(lipgloss.NormalBorder()).
+    BorderForeground(lipgloss.Color("63"))
+
+// Set a rounded, yellow-on-purple border to the top and left
+var anotherStyle = lipgloss.NewStyle().
+    BorderStyle(lipgloss.RoundedBorder()).
+    BorderForeground(lipgloss.Color("228")).
+    BorderBackground(lipgloss.Color("63")).
+    BorderTop(true).
+    BorderLeft(true)
+
+// Make your own border
+var myCuteBorder = lipgloss.Border{
+    Top:         "._.:*:",
+    Bottom:      "._.:*:",
+    Left:        "|*",
+    Right:       "|*",
+    TopLeft:     "*",
+    TopRight:    "*",
+    BottomLeft:  "*",
+    BottomRight: "*",
+}
+```
+
+There are also shorthand functions for defining borders, which follow a similar
+pattern to the margin and padding shorthand functions.
+
+```go
+// Add a thick border to the top and bottom
+lipgloss.NewStyle().
+    Border(lipgloss.ThickBorder(), true, false)
+
+// Add a double border to the top and left sides. Rules are set clockwise
+// from top.
+lipgloss.NewStyle().
+    Border(lipgloss.DoubleBorder(), true, false, false, true)
+```
+
+For more on borders see [the docs][docs].
+
