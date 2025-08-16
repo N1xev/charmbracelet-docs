@@ -1,0 +1,37 @@
+---
+title: Before you start
+description: The quickest way to get started is to grab an API key for your preferred provider such as Anthropic, OpenAI, Groq, or OpenRouter and just start Crush. You'll be prompted to enter your API key.
+icon: BookOpenText
+---
+
+import Image from 'next/image'
+import Link from 'next/link'
+
+
+## Setting your env variables 
+
+That said, you can also set environment variables for preferred providers.
+
+| Environment Variable       | Provider                                           |
+| -------------------------- | -------------------------------------------------- |
+| `ANTHROPIC_API_KEY`        | Anthropic                                          |
+| `OPENAI_API_KEY`           | OpenAI                                             |
+| `OPENROUTER_API_KEY`       | OpenRouter                                         |
+| `GEMINI_API_KEY`           | Google Gemini                                      |
+| `VERTEXAI_PROJECT`         | Google Cloud VertexAI (Gemini)                     |
+| `VERTEXAI_LOCATION`        | Google Cloud VertexAI (Gemini)                     |
+| `GROQ_API_KEY`             | Groq                                               |
+| `AWS_ACCESS_KEY_ID`        | AWS Bedrock (Claude)                               |
+| `AWS_SECRET_ACCESS_KEY`    | AWS Bedrock (Claude)                               |
+| `AWS_REGION`               | AWS Bedrock (Claude)                               |
+| `AZURE_OPENAI_ENDPOINT`    | Azure OpenAI models                                |
+| `AZURE_OPENAI_API_KEY`     | Azure OpenAI models (optional when using Entra ID) |
+| `AZURE_OPENAI_API_VERSION` | Azure OpenAI models                                |
+
+## By the Way
+
+Is there a provider you’d like to see in Crush? Is there an existing model that needs an update?
+
+Crush’s default model listing is managed in [Catwalk](https://github.com/charmbracelet/catwalk), an community-supported, open source repository of Crush-compatible models, and you’re welcome to contribute.
+
+<Link href="https://github.com/charmbracelet/catwalk"><Image width={174} height={174} alt="Catwalk Badge" src="https://github.com/user-attachments/assets/95b49515-fe82-4409-b10d-5beb0873787d" /></Link>

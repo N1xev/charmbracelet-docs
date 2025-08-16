@@ -1,0 +1,7 @@
+{
+  "title": "Crush",
+  "description": "Your TUI AI crush",
+  "pages": ["---Overview---", "index", "installation", "cheatSheet", "---Getting Started---", "gettingStarted", "Configuration", "Misc", "Project"],
+  "root": true,
+  "icon": "Crush"
+}

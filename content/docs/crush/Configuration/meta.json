@@ -1,0 +1,4 @@
+{
+  "pages": ["index", "lsps", "misc", "localModels", "customProviders", "amazonBedrock", "vertex"],
+      "defaultOpen": true
+}

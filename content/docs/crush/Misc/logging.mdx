@@ -1,0 +1,36 @@
+---
+title: Crush Logging
+---
+
+
+## Normal Logging
+
+Sometimes you need to look at logs. Luckily, Crush logs all sorts of
+stuff. Logs are stored in `./.crush/logs/crush.log` relative to the project.
+
+The CLI also contains some helper commands to make perusing recent logs easier:
+
+```bash
+# Print the last 1000 lines
+crush logs
+
+# Print the last 500 lines
+crush logs --tail 500
+
+# Follow logs in real time
+crush logs --follow
+```
+
+## Want more logging?
+
+Run `crush` with the `--debug` flag, or enable it in the config:
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "options": {
+    "debug": true,
+    "debug_lsp": true
+  }
+}
+```

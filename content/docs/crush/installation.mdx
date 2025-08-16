@@ -1,0 +1,101 @@
+---
+title: Installation
+description: How to install your AI crush?
+icon: ArrowDownToLine
+---
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Callout } from 'fumadocs-ui/components/callout';
+import Link from 'next/link'
+
+
+## Here we go
+
+You can install it easily using:
+
+<Tabs items={['package manager', 'Windows', 'Go']}>
+  <Tab value="package manager">
+  ```bash
+# Homebrew
+brew install charmbracelet/tap/crush
+
+# NPM
+npm install -g @charmland/crush
+
+# Arch Linux (btw)
+yay -S crush-bin
+
+# Nix
+nix run github:numtide/nix-ai-tools#crush
+```
+  </Tab>
+  <Tab value="Windows">
+  ```bash
+# Winget
+winget install charmbracelet.crush
+
+# Scoop
+scoop bucket add charm https://github.com/charmbracelet/scoop-bucket.git
+scoop install crush
+```
+  </Tab>
+  <Tab value="Go">
+  ```sh
+go install github.com/charmbracelet/crush@latest
+```
+  </Tab>
+</Tabs>
+
+Also there is som other options:
+
+<Accordions type="single">
+  <Accordion title="Nix (NUR)">
+  Crush is available via [NUR](https://github.com/nix-community/NUR) in `nur.repos.charmbracelet.crush`.
+
+You can also try out Crush via `nix-shell`:
+
+```bash
+# Add the NUR channel.
+nix-channel --add https://github.com/nix-community/NUR/archive/main.tar.gz nur
+nix-channel --update
+
+# Get Crush in a Nix shell.
+nix-shell -p '(import <nur> { pkgs = import <nixpkgs> {}; }).repos.charmbracelet.crush'
+```
+  </Accordion>
+  <Accordion title="Debian/Ubuntu">
+  ```bash
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+sudo apt update && sudo apt install crush
+```
+
+  </Accordion>
+  <Accordion title="Fedora/RHEL">
+
+```bash
+echo '[charm]
+name=Charm
+baseurl=https://repo.charm.sh/yum/
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
+sudo yum install crush
+```
+  </Accordion>
+
+</Accordions>
+
+
+Or, download it:
+
+- [Packages][releases] are available in Debian and RPM formats
+- [Binaries][releases] are available for Linux, macOS, Windows, FreeBSD, OpenBSD, and NetBSD
+
+[releases]: https://github.com/charmbracelet/crush/releases
+
+<Callout title="Watchout!" type="warning">
+ Productivity may increase when using Crush and you may find yourself nerd
+ sniped when first using the application. If the symptoms persist, join the
+ <Link href="https://discord.gg/JMyZ87T6Pq">Discord</Link> and nerd snipe the rest of us.
+</Callout>

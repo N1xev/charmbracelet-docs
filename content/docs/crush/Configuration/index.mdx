@@ -1,0 +1,33 @@
+---
+title: Configure It
+description: Learn how to configure your crush
+---
+
+## Configuration
+
+Crush runs great with no configuration. That said, if you do need or want to
+customize Crush, configuration can be added either local to the project itself,
+or globally, with the following priority:
+
+1. `.crush.json`
+2. `crush.json`
+3. `$HOME/.config/crush/crush.json` (Windows: `%USERPROFILE%\AppData\Local\crush\crush.json`)
+
+Configuration itself is stored as a JSON object:
+
+```json
+{
+   "this-setting": {"this": "that"},
+   "that-setting": ["ceci", "cela"]
+}
+```
+
+As an additional note, Crush also stores ephemeral data, such as application state, in one additional location:
+
+```bash
+# Unix
+$HOME/.local/share/crush/crush.json
+
+# Windows
+%LOCALAPPDATA%\crush\crush.json
+```
