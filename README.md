@@ -38,8 +38,7 @@ Open `http://localhost:3000` to view the documentation.
 charmbracelet-docs/
 ├── app/                 # Next.js app directory
 ├── content/            # MDX documentation files
-│   ├── docs/          # Main documentation
-│   └── guides/        # Tutorials and guides
+│   └── docs/          # Main documentation contain all of the ecosystem documentations
 ├── components/        # React components
 ├── lib/              # Utility functions
 ├── public/           # Static assets
